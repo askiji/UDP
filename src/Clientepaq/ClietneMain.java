@@ -26,15 +26,11 @@ public class ClietneMain {
 				mensaje = in.readLine();
 				mensaje_bytes = mensaje.getBytes();
 				paquete = new DatagramPacket(mensaje_bytes,mensaje.length(),address,6000);
-				System.out.println("Envio el paquete");
 				socket.send(paquete);
 				// Here we recive the package
 				socket.receive(paqueteLegada);
-				System.out.println("recibo el paquete");
 				mensaje_llegada = new String(mensaje_bytes_llegada);
 				System.out.println(mensaje_llegada);
-//				mensaje_bytes_llegada = new byte[256];
-//				socket.close();
 			} while (true);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
